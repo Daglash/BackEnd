@@ -1,10 +1,9 @@
 const express = require('express')
-const listaProductos = require('./Contenedor.js');
+const Contenedor = require('./Contenedor.js');
 
 // creo una app de tipo express
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 
 // --------------codigo------------------
 
