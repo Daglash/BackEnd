@@ -11,10 +11,10 @@ app.get('/',(req,res)=>{
     res.send(`<h1 style="color:blue">Bienvenid@ :)</h>`)
 })
 
-app.get('/productos',(req,res)=>{
-    let productos = req.params.productos
-    res.send(`Lista de productos: ${productos}`)
-})
+app.get("/productos", async (req, res) => {
+    let productos = await Contenedor.getAll();
+    res.send(`Lista de productos: ${JSON.stringify(productos)}`);
+});
 
 app.get('/productosRandom',(req,res)=>{
     let productoRandom=req.params.productoRandom

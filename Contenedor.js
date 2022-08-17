@@ -40,6 +40,25 @@ class Contenedor{
         return id;
     }
 
+    async getAll() {
+
+        try {
+        
+        const objetos = await fs.readFile("./productos.txt", "utf-8");
+        
+        console.log(objetos);
+        
+        return JSON.parse(objetos);
+        
+        } catch (error) {
+        
+        return [];
+        
+        }
+        
+        }
+
+
     async getById(id){
         const objetos =await this.getAll()
         
