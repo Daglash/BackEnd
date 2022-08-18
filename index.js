@@ -16,9 +16,10 @@ app.get("/productos", async (req, res) => {
     res.send(`Lista de productos: ${JSON.stringify(productos)}`);
 });
 
-app.get('/productosRandom',(req,res)=>{
-    let productoRandom=req.params.productoRandom
-    res.send(`Producto Random: ${productoRandom}`)
+app.get('/productosRandom',async (req,res)=>{
+    const p = await Contenedor.getAll();
+    const numeroRandom = Math.floor(Math.random() * p.length);
+    res.send(`Producto Random: ${JSON.stringify((p[numeroRandom]))}`)
 })
 
 

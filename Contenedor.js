@@ -45,16 +45,17 @@ class Contenedor{
         try {
         
         const objetos = await fs.readFile("./productos.txt", "utf-8");
-        
+            
         console.log(objetos);
-        
+            
         return JSON.parse(objetos);
-        
+            
         } catch (error) {
-        
+            
         return [];
-        
-        }
+            
+            }
+    
         
         }
 
@@ -69,21 +70,13 @@ class Contenedor{
         }
 
         try{
-            await fs.readFile(this.ruta, JSON.stringify(ObjetoID,null,2))
+            await fs.readFile(this.ruta, JSON.parse(ObjetoID,null,2))
             console.log(ObjetoID)
         }catch(error){
 
         }
     }
 
-    async getAll(){
-        try{
-            const objetos = await fs.readFile(this.ruta,'utf-8')
-            return JSON.parse(objetos)
-        }catch(error){
-            return []
-        }
-    }
 
     // siempre que tengas una funcion asincrona siempre hay que usar el try y el catch
 
