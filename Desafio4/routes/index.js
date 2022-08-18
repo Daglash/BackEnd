@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Producto = require('./api/productos.js');
+const Producto = require('../api/productos');
 
 router.get('/productos', (req, res) => {
     res.send(Producto.productos);
