@@ -1,0 +1,29 @@
+{{!-- Referencia  
+Forms - Bootstrap https://getbootstrap.com ›
+Colors - Bootstrap https://getbootstrap.com--}}
+
+<section class="p-4 bg-success">
+    <h2 class="text-dark">Ingrese Producto</h2>
+    <form action='/productos' method='POST'>
+        <div class='mb-3'>
+            <label class='form-label fw-bold' for='name'>Nombre</label>
+            <input class="form-control" type='text' name='name' />
+        </div>
+        <div class='mb-3'>
+            <label class='form-label fw-bold' for='price'>Precio</label>
+            <input class="form-control" type='number' name='price' />
+        </div>
+        <div class='mb-3'>
+            <label class='form-label fw-bold' for='picture'>Foto URL</label>
+            <input class="form-control" type='url' name='picture' />
+        </div>
+        <div class='mb-3'>
+            <input class="btn btn-warning" type='submit' value='Enviar' />
+        </div>
+    </form>
+    <div>
+        <a href="./listaproductos">
+            <button class="btn btn-warning">Ver Productos</button>
+        </a>
+    </div>
+</section>
