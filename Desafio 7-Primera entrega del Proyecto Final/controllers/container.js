@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { products } = require('./controllerProducts.js');
+const  products  = require('./controllerProducts.js');
 class Container {
     constructor(fileName) {
         this.fileName = fileName;
