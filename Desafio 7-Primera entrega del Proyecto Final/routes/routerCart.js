@@ -2,6 +2,9 @@ const express = require('express');
 const { addCart, deleteCart, getProducts, addProductToCart, deleteProduct }= require("../controllers/controllerCart.js");
 const routerCarts = express.Router();
 
+/* ------------------------Endpoints del Carrito------------------------ */
+
+
 //Crea un carrito y devuelve su id
 routerCarts.post('/', (req, res) => addCart(req, res));
 

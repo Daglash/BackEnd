@@ -21,7 +21,7 @@ app.use('*', (req, res) => {
 // pongo a escuchar el servidor en el puerto indicado
 const PORT = process.env.PORT || 8080;
 const server = app.listen(PORT, () =>{
-    console.log(`Servidor escuchando en http://localhost:${PORT}`);
+    console.log(`🚀 Servidor escuchando en http://localhost:${PORT}`);
 })
 
 // en caso de error, avisar

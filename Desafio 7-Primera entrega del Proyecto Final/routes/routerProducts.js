@@ -2,6 +2,8 @@ const express = require('express');
 const { getProducts, addProduct, updateProduct, deleteProduct } = require("../controllers/controllerProducts.js");
 const routerProducts = express.Router();
 
+/* ------------------------ Endpoints de productos ------------------------ */
+
 //lista todos los productos disponibles o por ID
 routerProducts.get('/:id?', (req, res) => getProducts(req, res));
 
