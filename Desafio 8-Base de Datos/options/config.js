@@ -13,7 +13,7 @@ const optionsMariaDB = {
 		port: 3306,
 		user: 'root',
 		password: '',
-		database: 'base_de_datos_test'
+		database: 'DESAFIO_8-BASE_DE_DATOS'
 	}
 }
 
