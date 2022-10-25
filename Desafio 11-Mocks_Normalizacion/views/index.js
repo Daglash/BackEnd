@@ -1,5 +1,5 @@
 const socket = io();
-
+const messagesContainer = document.getElementById("messagesContainer");
 const $tableProducts = document.querySelector('#table-products');
 
 const renderProducts = products => {
@@ -20,6 +20,54 @@ const renderProducts = products => {
 	}
 }
 
-socket.on('products', products => {
+
+
+const addMessage = (e) => {
+	let date = new Date().toLocaleDateString() + " " + new Date().toTimeString();
+  
+	const message = {
+	  author: {
+		email: document.getElementById("email").value,
+		name: document.getElementById("name").value,
+		lastName: document.getElementById("lastName").value,
+		age: document.getElementById("age").value,
+		alias: document.getElementById("alias").value,
+		avatar: document.getElementById("avatar").value,
+	  },
+	  message: document.getElementById("message").value,
+	};
+  
+	const normalizedMessage = normalizeMessages(message);
+  
+	socket.emit("new-message", normalizedMessage);
+  
+	document.getElementById("message").value = " ";
+	return false;
+  };
+  
+  const renderMessages = (messages) => {
+	const desnormalizedMessages = desnormalizeChatMessages(messages);
+	const messagesHTML = desnormalizedMessages
+	  .map((message) => {
+		return `
+		  <div>
+			<span class="message__email">${message.author.alias}</span>:
+			<span class="message__date">[${message.date}]<span>
+			<br>
+			<p class="message__text">${message.message}</p>
+		  </div>
+		  `;
+	  })
+	  .join(" ");
+	document.getElementById("chat__messagesContainer").innerHTML = messagesHTML;
+  };
+  
+
+  socket.on('products', products => {
 	renderProducts(products);
 });
+
+socket.on("messagesFromServer", (messages) => {
+	renderMessages(messages);
+  });
+  
